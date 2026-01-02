@@ -26,6 +26,14 @@ import bannerdeal from "../images/banner-deal1.jpg";
 import product11 from "../images/product-img-11.jpg";
 import product12 from "../images/product-img-12.jpg";
 import product13 from "../images/product-img-13.jpg";
+import productimg1 from "../images/product-img-1.jpg";
+import productimg2 from "../images/product-img-2.jpg";
+import productimg3 from "../images/product-img-3.jpg";
+import productimg4 from "../images/product-img-4.jpg";
+import productimg5 from "../images/product-img-5.jpg";
+import productimg6 from "../images/product-img-6.jpg";
+import productimg7 from "../images/product-img-7.jpg";
+import productimg8 from "../images/product-img-8.jpg";
 import clock from "../images/clock.svg";
 import gift from "../images/gift.svg";
 import package1 from "../images/package.svg";
@@ -53,6 +61,7 @@ import { MagnifyingGlass } from "react-loader-spinner";
 import FAQ from "./FooterElements/Faq";
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollRotation, setScrollRotation] = useState(0);
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -60,6 +69,12 @@ const Home = () => {
     } else {
       setIsVisible(false);
     }
+  };
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const rotation = scrollY * 0.2; // Adjust multiplier for rotation speed
+    setScrollRotation(rotation);
   };
 
   const scrollToTop = () => {
@@ -71,8 +86,10 @@ const Home = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -324,6 +341,55 @@ const Home = () => {
                 </div>
               </section>
             </>
+            
+            {/* Floating Products Circle Animation Section */}
+            <>
+              <section className="floating-products-section py-5 my-5">
+                <div className="container">
+                  <div className="row align-items-center">
+                    <div className="col-12">
+                      <div className="floating-products-container">
+                        {/* Center Content */}
+                        <div className="center-content">
+                          <h2 className="display-4 fw-bold text-dark mb-3">The World of</h2>
+                          <h3 className="display-5 fw-bold text-primary mb-4">Fresh Groceries.</h3>
+                          <Link to="/Shop" className="btn btn-primary btn-lg">
+                            Explore Products
+                          </Link>
+                        </div>
+                        
+                        {/* Floating Product Cards */}
+                        <div className="floating-card floating-card-1" style={{ transform: `rotate(${scrollRotation}deg) translateX(350px) rotate(${-scrollRotation}deg)` }}>
+                          <img src={productimg1} alt="Product 1" />
+                        </div>
+                        <div className="floating-card floating-card-2" style={{ transform: `rotate(${45 + scrollRotation}deg) translateX(350px) rotate(${-45 - scrollRotation}deg)` }}>
+                          <img src={productimg2} alt="Product 2" />
+                        </div>
+                        <div className="floating-card floating-card-3" style={{ transform: `rotate(${90 + scrollRotation}deg) translateX(350px) rotate(${-90 - scrollRotation}deg)` }}>
+                          <img src={productimg3} alt="Product 3" />
+                        </div>
+                        <div className="floating-card floating-card-4" style={{ transform: `rotate(${135 + scrollRotation}deg) translateX(350px) rotate(${-135 - scrollRotation}deg)` }}>
+                          <img src={productimg4} alt="Product 4" />
+                        </div>
+                        <div className="floating-card floating-card-5" style={{ transform: `rotate(${180 + scrollRotation}deg) translateX(350px) rotate(${-180 - scrollRotation}deg)` }}>
+                          <img src={productimg5} alt="Product 5" />
+                        </div>
+                        <div className="floating-card floating-card-6" style={{ transform: `rotate(${225 + scrollRotation}deg) translateX(350px) rotate(${-225 - scrollRotation}deg)` }}>
+                          <img src={productimg6} alt="Product 6" />
+                        </div>
+                        <div className="floating-card floating-card-7" style={{ transform: `rotate(${270 + scrollRotation}deg) translateX(350px) rotate(${-270 - scrollRotation}deg)` }}>
+                          <img src={productimg7} alt="Product 7" />
+                        </div>
+                        <div className="floating-card floating-card-8" style={{ transform: `rotate(${315 + scrollRotation}deg) translateX(350px) rotate(${-315 - scrollRotation}deg)` }}>
+                          <img src={productimg8} alt="Product 8" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </>
+            
             <>
               {/* section */}
               <section className="mt-8">
@@ -428,381 +494,6 @@ const Home = () => {
                 </div>
               </section>
               {/* section */}
-            </>
-            <>
-              {/* section category */}
-              <section className="my-lg-14 my-8">
-                <div className="container ">
-                  <div className="row">
-                    <div className="col-12">
-                      <div className="mb-6">
-                        {/* heading    */}
-                        <div className="section-head text-center mt-8">
-                          <h3
-                            className="h3style"
-                            data-title="Shop Popular Categories"
-                          >
-                            Shop Popular Categories
-                          </h3>
-                          <div className="wt-separator bg-primarys"></div>
-                          <div className="wt-separator2 bg-primarys"></div>
-                          {/* <p>Connecting with entrepreneurs online, is just a few clicks away.</p> */}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row ">
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={dairybreadeggs}
-                                alt="dairy-bread-eggs"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* text */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                {" "}
-                                <Link to="#" className="text-inherit">
-                                  Dairy, Bread &amp; Eggs
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={fruitsvegetables}
-                                alt="fruits-vegetables"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            <div className="mt-4">
-                              {/* text */}
-                              <h5 className="fs-6 mb-0">
-                                {" "}
-                                <Link to="#" className="text-inherit">
-                                  Fruits &amp; Vegetables
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={snackmunchies}
-                                alt="snack-munchies"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* text */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                {" "}
-                                <Link to="#" className="text-inherit">
-                                  Snack &amp; Munchies
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={bakerybiscuits}
-                                alt="bakery-biscuits"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* text */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                {" "}
-                                <Link to="#" className="text-inherit">
-                                  Bakery &amp; Biscuits
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={instantfood}
-                                alt="instant-food"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* text */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                {" "}
-                                <Link to="#" className="text-inherit">
-                                  Instant Food
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={teacoffeedrinks}
-                                alt="tea-coffee-drinks"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* text */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                <Link to="#" className="text-inherit">
-                                  Tea, Coffee &amp; Drinks
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={colddrinksjuices}
-                                alt="cold-drinks-juices"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* text */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                <Link to="#" className="text-inherit">
-                                  Cold Drinks &amp; Juices
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={chickenmeatfish}
-                                alt="chicken-meat-fish"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* text */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                <Link to="#" className="text-inherit">
-                                  Chicken, Meat &amp; Fish
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        {/* text */}
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={babycare}
-                                alt="baby-care"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* text */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                {" "}
-                                <Link to="#" className="text-inherit">
-                                  Baby Care
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={cleaningessentials}
-                                alt="cleaning-essentials"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* img */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                {" "}
-                                <Link to="#" className="text-inherit">
-                                  Cleaning Essentials
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={petcare}
-                                alt="pet-care"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* text */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                {" "}
-                                <Link to="#" className="text-inherit">
-                                  Pet Care
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                      {/* col */}
-                      <div className="col-lg-2 col-md-4 col-6 fade-zoom">
-                        <Zoom>
-                          <div className="text-center mb-10">
-                            {/* img */}
-                            <Link to="#">
-                              <img
-                                src={attaricedal}
-                                alt="atta-rice-dal"
-                                className="card-image rounded-circle"
-                              />
-                            </Link>
-                            {/* text */}
-                            <div className="mt-4">
-                              <h5 className="fs-6 mb-0">
-                                <Link to="#" className="text-inherit">
-                                  Atta, Rice &amp; Dal
-                                </Link>
-                              </h5>
-                            </div>
-                          </div>
-                        </Zoom>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              {/* section */}
-            </>
-            <>
-              <section>
-                <div className="container ">
-                  <div className="row">
-                    <div className="col-12 col-lg-6 mb-3 mb-lg-0  fade-in-left">
-                      <Slide direction="left">
-                        <div>
-                          <div
-                            className="py-10 px-8 rounded-3"
-                            style={{
-                              background: `url(${grocerybanner}) no-repeat`,
-                              backgroundSize: "cover",
-                              backgroundPosition: "center",
-                            }}
-                          >
-                            <div>
-                              <h3 className="fw-bold mb-1">
-                                Fruits &amp; Vegetables
-                              </h3>
-                              <p className="mb-4">
-                                Get Upto <span className="fw-bold">30%</span>{" "}
-                                Off
-                              </p>
-                              <Link to="#!" className="btn btn-dark">
-                                Shop Now
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </Slide>
-                    </div>
-                    <div className="col-12 col-lg-6 fade-in-left ">
-                      <Slide direction="right">
-                        <div>
-                          <div
-                            className="py-10 px-8 rounded-3"
-                            style={{
-                              background: `url(${grocerybanner2}) no-repeat`,
-                              backgroundSize: "cover",
-                              backgroundPosition: "center",
-                            }}
-                          >
-                            <div>
-                              <h3 className="fw-bold mb-1">
-                                Freshly Baked Buns
-                              </h3>
-                              <p className="mb-4">
-                                Get Upto <span className="fw-bold">25%</span>{" "}
-                                Off
-                              </p>
-                              <Link to="#!" className="btn btn-dark">
-                                Shop Now
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </Slide>
-                    </div>
-                  </div>
-                </div>
-              </section>
             </>
             <>
               <ProductItem />
