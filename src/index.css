@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +12,231 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Fan-Style Testimonials Gallery */
+:root {
+  --sizeCreaBlock: 270px;
+  --bgCreaBlock: #ffffff;
+  --blockTranslateX: 190px;
+  --blockRotateY: 40deg;
+  --marginSize: 36px;
+  --shadowColor: 0px 10px 30px rgba(0, 0, 0, 0.15);
+  --blocImgSize: 120px;
+
+  --arc-blue: rgba(53, 113, 158, 1);
+  --arc-vert: #4caf50;
+  --arc-jaune: #ffeb3b;
+  --arc-rose: #e91e63;
+  --arc-orange: #f76334;
+}
+
+.testimonials-section {
+  padding: 80px 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-family: "Merriweather", serif;
+}
+
+.title-underline {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #35c4ff 0%, #b24eff 100%);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.creationsBlocUl {
+  white-space: nowrap;
+  text-align: center;
+  min-height: 450px;
+  overflow: visible;
+  padding: 50px 0;
+}
+
+.blocImg {
+  width: 100%;
+  height: var(--blocImgSize);
+  position: relative;
+  z-index: 9999;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-avatar span {
+  font-family: "Merriweather", serif;
+}
+
+.creaBlock {
+  width: var(--sizeCreaBlock);
+  background-color: var(--bgCreaBlock);
+  padding: 30px 20px 20px 20px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-box-shadow: var(--shadowColor);
+  -moz-box-shadow: var(--shadowColor);
+  box-shadow: var(--shadowColor);
+  cursor: pointer;
+}
+
+.creaBlock::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: calc(var(--sizeCreaBlock) * 2);
+  height: calc(var(--sizeCreaBlock) * 2);
+  background-color: #35c2ff42;
+  transform: rotateZ(70deg);
+  z-index: -1;
+}
+
+.creaBlock h2 {
+  font-size: 18px;
+  color: #2c3e50;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: "Merriweather", serif;
+}
+
+.testimonial-content {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.testimonial-rating {
+  margin: 15px 0;
+  color: #ffeb3b;
+  font-size: 14px;
+}
+
+.testimonial-rating i {
+  margin: 0 2px;
+}
+
+.testimonial-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #5a5a5a;
+  text-align: center;
+  font-family: "Merriweather", serif;
+}
+
+.creaBlock {
+  transform: scale(0.9);
+}
+
+.creaBlock .lineSeparator {
+  width: 100%;
+  height: 4px;
+  border-radius: 5px;
+  margin: 0 0 25px 0;
+  opacity: 0.8;
+}
+
+/* First testimonial */
+.creaBlockPrez:nth-child(1) {
+  z-index: 1;
+  transform: scale(0.9);
+}
+
+.creaBlockPrez:nth-child(1):hover {
+  transform: scale(1.1);
+}
+
+.creaBlockPrez:nth-child(1):hover ~ .creaBlockPrez:nth-child(2) {
+  transform: scale(0.83) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
+}
+
+.creaBlockPrez:nth-child(1):hover ~ .creaBlockPrez:nth-child(3) {
+  transform: scale(0.88) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
+}
+
+/* Second testimonial */
+.creaBlockPrez:nth-child(2) {
+  z-index: 2;
+  margin-left: calc(-6 * var(--marginSize));
+  transform: scale(0.94);
+}
+
+.creaBlockPrez:nth-child(2):hover {
+  transform: scale(1.1);
+}
+
+.creaBlockPrez:nth-child(2):hover ~ .creaBlockPrez:nth-child(3) {
+  transform: scale(0.88) translateX(var(--blockTranslateX))
+    rotateY(var(--blockRotateY));
+}
+
+/* Third testimonial */
+.creaBlockPrez:nth-child(3) {
+  z-index: 3;
+  margin-left: calc(-6 * var(--marginSize));
+  transform: scale(0.98);
+}
+
+.creaBlockPrez:nth-child(3):hover {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .creationsBlocUl {
+    white-space: normal;
+    padding: 20px 0;
+  }
+
+  .creaBlockPrez {
+    margin-left: 0 !important;
+    margin-bottom: 30px;
+    transform: scale(1) !important;
+  }
+
+  .creaBlockPrez:hover {
+    transform: scale(1.05) !important;
+  }
+
+  .creaBlockPrez:hover ~ .creaBlockPrez {
+    transform: scale(1) !important;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
 }

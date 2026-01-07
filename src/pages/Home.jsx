@@ -59,6 +59,7 @@ import { useEffect } from "react";
 // import { PulseLoader } from 'react-spinners';
 import { MagnifyingGlass } from "react-loader-spinner";
 import FAQ from "./FooterElements/Faq";
+import Testimonials from "../Component/Testimonials";
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollRotation, setScrollRotation] = useState(0);
@@ -1104,6 +1105,9 @@ const Home = () => {
             </>
             <>
             <FAQ/>
+            </>
+            <>
+              <Testimonials />
             </>
             <>
               <div className="container">
