@@ -309,7 +309,7 @@ const Footer = () => {
             <div className="container text-center">
               <div className="footer-copy">
                 <div className="copyright">
-                  © {year} All Rights Reserved By _ Wasana
+                  © {year} All Rights Reserved By Fianto Solutions
                   
               
                 </div>
